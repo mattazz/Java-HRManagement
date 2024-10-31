@@ -1,0 +1,73 @@
+
+/* General styling */
+.root {
+    -fx-font-family: 'Arial';
+    -fx-background-color: #f4f4f4;
+}
+
+#userInfoPanel{
+    -fx-background-color: #defcbd;
+    -fx-padding: 20px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-max-height: 200px;
+}
+
+.label.title{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+.label.header{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+/* buttons */
+
+.vbox > .button{
+-fx-max-width: Infinity;
+}
+
+.button {
+    -fx-background-color: #6200ea;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #3700b3;
+}
+
+.button:pressed {
+    -fx-background-color: #03dac5;
+}
+
+/* labels */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+}
+
+/*text fields */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-color: #6200ea;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* text areas */
+.text-area {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-color: #6200ea;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
