@@ -26,6 +26,10 @@ public class AdminEmployeeController {
     public TextField employeeEmail;
     public TextField employeeDepartment;
     public TextField employeePassword;
+    public TableView<Ticket> ticketTable;
+    public TableColumn<Ticket, String> columnTicketId;
+    public TableColumn<Ticket, String> columnTicketDate;
+    public TableColumn<Ticket, String> columnTicketRequest;
     @FXML
     private Label adminName;
     @FXML
@@ -50,6 +54,12 @@ public class AdminEmployeeController {
         columnEmployeeEmail.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
         columnEmployeeSalary.setCellValueFactory(cellData -> cellData.getValue().salaryProperty());
         columnEmployeeDept.setCellValueFactory(cellData -> cellData.getValue().departmentProperty());
+
+//        set ticket table
+        columnTicketId.setCellValueFactory(cellData -> cellData.getValue().ticketIDProperty());
+        columnTicketDate.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+        columnTicketRequest.setCellValueFactory(cellData -> cellData.getValue().requestProperty());
+
 
         viewEmployeeTable();
 
@@ -177,7 +187,23 @@ public class AdminEmployeeController {
         employeeSalary.setText(selectedEmployee.getSalary());
         employeeDepartment.setText(selectedEmployee.getDepartment());
         employeePassword.setText(selectedEmployee.getPassword());
+//    Then populate the ticket table based on the employeeID
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM employee_tickets WHERE employeeID = ?")) {
+            preparedStatement.setString(1, selectedEmployee.getEmployeeID());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            ticketTable.getItems().clear();
+            while (resultSet.next()) {
+                Ticket ticket = new Ticket(resultSet.getString("ticketID"), resultSet.getString("date"), resultSet.getString("request"));
+                ticketTable.getItems().add(ticket);
+            }
+        } catch (Exception e) {
+            statusMessage.setText("Error loading ticket table");
+            statusMessage.setStyle("-fx-text-fill: red");
+            e.printStackTrace();
+        }
     }
+
 
     public void editEmployee(ActionEvent actionEvent) {
         String id = employeeID.getText();

@@ -20,21 +20,30 @@
         <Label fx:id="adminEmail" />
         <Label fx:id="dateTime" />
     </VBox>
-    <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-        <Label text="To Edit employee, Click on an employee from the table below and then click 'Load Employee'. Edit the details and click 'Edit Employee'"/>
-        <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10" maxWidth="400">
-            <TextField fx:id="employeeID" promptText="Employee ID" />
-            <TextField fx:id="employeeName" promptText="Employee Name" />
-            <TextField fx:id="employeeDepartment" promptText="Employee Department" />
-            <TextField fx:id="employeeSalary" promptText="Employee Salary" />
-            <TextField fx:id="employeeEmail" promptText="Employee Email" />
-            <TextField fx:id="employeePassword" promptText="Employee Password" />
-            <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-                <Button mnemonicParsing="false" onAction="#addEmployee" text="Add Employee"/>
-                <Button mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee"/>
-            </HBox>
-        </VBox>
-    </VBox>
+        <HBox minWidth="700" prefHeight="50.0" prefWidth="700.0" alignment="CENTER" spacing="10">
+            <VBox prefHeight="50.0" prefWidth="600.0" alignment="CENTER" spacing="10" >
+                <Label text="To Edit employee, Click on an employee from the table below and then click 'Load Employee'. Edit the details and click 'Edit Employee'"/>
+                <TextField fx:id="employeeID" promptText="Employee ID" />
+                <TextField fx:id="employeeName" promptText="Employee Name" />
+                <TextField fx:id="employeeDepartment" promptText="Employee Department" />
+                <TextField fx:id="employeeSalary" promptText="Employee Salary" />
+                <TextField fx:id="employeeEmail" promptText="Employee Email" />
+                <TextField fx:id="employeePassword" promptText="Employee Password" />
+                <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
+                    <Button mnemonicParsing="false" onAction="#addEmployee" text="Add Employee"/>
+                    <Button mnemonicParsing="false" onAction="#editEmployee" text="Edit Employee"/>
+                </HBox>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="600.0" alignment="CENTER" spacing="10" >
+                <TableView fx:id="ticketTable" prefHeight="300.0" prefWidth="200.0" >
+                    <columns>
+                        <TableColumn fx:id="columnTicketId" prefWidth="100.0" text="Ticket ID" />
+                        <TableColumn fx:id="columnTicketDate" prefWidth="100.0" text="Date" />
+                        <TableColumn fx:id="columnTicketRequest" prefWidth="275.0" text="Request" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </HBox>
 
 
     <TableView fx:id="employeeTable" minHeight="100" prefHeight="300.0" prefWidth="200.0" >
