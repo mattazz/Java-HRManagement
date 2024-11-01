@@ -6,11 +6,12 @@
 }
 
 #userInfoPanel{
-    -fx-background-color: #defcbd;
+    -fx-background-color: #b186db;
     -fx-padding: 20px;
+    -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: #ddd;
     -fx-border-width: 1px;
+    -fx-border-color: #6200ea;
     -fx-max-height: 200px;
 }
 

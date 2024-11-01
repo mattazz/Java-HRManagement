@@ -21,13 +21,13 @@
         <Label fx:id="annualSalary" />
         <Label fx:id="dateTime" />
     </VBox>
-    <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-        <Label text="Update Monthly Salary" />
-        <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-            <TextField fx:id="salaryUpdate" prefHeight="50.0" prefWidth="200.0" />
-            <Button onAction="#onUpdateSalary" mnemonicParsing="false" text="Update Monthly Salary" />
-        </HBox>
-    </VBox>
+<!--    <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">-->
+<!--        <Label text="Update Monthly Salary" />-->
+<!--        <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">-->
+<!--            <TextField fx:id="salaryUpdate" prefHeight="50.0" prefWidth="200.0" />-->
+<!--            <Button onAction="#onUpdateSalary" mnemonicParsing="false" text="Update Monthly Salary" />-->
+<!--        </HBox>-->
+<!--    </VBox>-->
     <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
         <Label text="Create a support ticket" />
         <TextArea fx:id="ticketRequest" prefHeight="50.0" prefWidth="200.0" />
@@ -41,7 +41,7 @@
         <columns>
             <TableColumn fx:id="columnTicketId" prefWidth="100.0" text="Ticket ID" />
             <TableColumn fx:id="columnDate" prefWidth="100.0" text="Date" />
-            <TableColumn fx:id="columnRequest" prefWidth="275.0" text="Request" />
+            <TableColumn fx:id="columnRequest" minWidth="550" prefWidth="275.0" text="Request" />
         </columns>
     </TableView>
     <Label fx:id="StatusMessage" />

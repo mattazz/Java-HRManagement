@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
 
 public class AdminEmployeeController {
 
-
     public Label statusMessage;
     public TableView<Employee> employeeTable;
     public TableColumn<Employee, String> columnEmployeeId;
@@ -33,7 +32,6 @@ public class AdminEmployeeController {
     private Label dateTime;
     @FXML
     private Label adminEmail;
-
 
     public void initialize(){
         AdminSession adminSession = AdminSession.getInstance();
@@ -106,6 +104,8 @@ public class AdminEmployeeController {
             if (resultSet.next()) {
                 statusMessage.setText("User already exists");
                 statusMessage.setStyle("-fx-text-fill: red");
+
+                clearEmployeeFields();
                 return;
             }
         } catch (Exception e) {
@@ -128,10 +128,7 @@ public class AdminEmployeeController {
             statusMessage.setText("Employee added successfully");
             statusMessage.setStyle("-fx-text-fill: green");
 
-            employeeName.clear();
-            employeeEmail.clear();
-            employeeSalary.clear();
-            employeeDepartment.clear();
+            clearEmployeeFields();
 
             viewEmployeeTable();
 
@@ -188,6 +185,8 @@ public class AdminEmployeeController {
         String email = employeeEmail.getText();
         String salary = employeeSalary.getText();
         String department = employeeDepartment.getText();
+        String password = employeePassword.getText();
+
 
         if (id.isEmpty() || name.isEmpty() || email.isEmpty() || salary.isEmpty() || department.isEmpty()) {
             statusMessage.setText("Please select an employee to edit");
@@ -196,12 +195,13 @@ public class AdminEmployeeController {
         }
 
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employee SET name = ?, department = ?, email = ?, salary = ? WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employee SET name = ?, department = ?, email = ?, salary = ?, password = ? WHERE id = ?")) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, department);
             preparedStatement.setString(3, email);
             preparedStatement.setString(4, salary);
-            preparedStatement.setString(5, id);
+            preparedStatement.setString(5, password);
+            preparedStatement.setString(6, id);
             preparedStatement.executeUpdate();
 
             statusMessage.setText("Employee updated successfully");
@@ -214,5 +214,14 @@ public class AdminEmployeeController {
             statusMessage.setStyle("-fx-text-fill: red");
             e.printStackTrace();
         }
+    }
+
+    public void clearEmployeeFields(){
+        employeeID.clear();
+        employeeName.clear();
+        employeeEmail.clear();
+        employeeSalary.clear();
+        employeeDepartment.clear();
+        employeePassword.clear();
     }
 }
