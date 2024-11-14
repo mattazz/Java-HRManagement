@@ -48,6 +48,7 @@
     <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
         <Button onAction="#onLogOutClick" text="LOGOUT" />
         <Button onAction="#onExitClick" text="EXIT" />
+        <Button onAction="#onViewPreferences" text="My Preferences" />
     </HBox>
 
 

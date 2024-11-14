@@ -10,7 +10,7 @@
 
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hrmanagement.DashboardController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hrmanagement.DashboardPreferencesController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -21,36 +21,29 @@
         <Label fx:id="annualSalary" />
         <Label fx:id="dateTime" />
     </VBox>
-<!--    <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">-->
-<!--        <Label text="Update Monthly Salary" />-->
-<!--        <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">-->
-<!--            <TextField fx:id="salaryUpdate" prefHeight="50.0" prefWidth="200.0" />-->
-<!--            <Button onAction="#onUpdateSalary" mnemonicParsing="false" text="Update Monthly Salary" />-->
-<!--        </HBox>-->
-<!--    </VBox>-->
+
+    <Label styleClass="title" text="My Preferences" />
+<!--    Update email, password -->
     <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-        <Label text="Create a support ticket" />
-        <TextArea fx:id="ticketRequest" prefHeight="50.0" prefWidth="200.0" />
-    <Button onAction="#onCreateSupportTicket" mnemonicParsing="false" text="Create support ticket" />
+        <Label text="Update Email" />
+        <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
+            <TextField fx:id="emailUpdate" prefHeight="50.0" prefWidth="200.0" />
+            <Button onAction="#onUpdateEmail" mnemonicParsing="false" text="Update Email" />
+        </HBox>
     </VBox>
-    <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-<!--        <Button mnemonicParsing="false" onAction="#onViewSupportTicket" text="View support tickets"/>-->
-        <Button mnemonicParsing="false" onAction="#onDeleteSupportTicket" text="Delete support tickets"/>
+    <VBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
+        <Label text="Update Password" />
+        <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
+            <TextField fx:id="passwordUpdate" prefHeight="50.0" prefWidth="200.0" />
+            <Button onAction="#onUpdatePassword" mnemonicParsing="false" text="Update Password" />
+        </HBox>
+    </VBox>
+    <Label fx:id="statusMessage" />
+
+    <HBox minWidth="300" prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
+        <Button onAction="#onBackClick" text="BACK" maxWidth="Infinity" />
+        <Button onAction="#onLogOutClick" text="LOGOUT" maxWidth="Infinity" />
+        <Button onAction="#onExitClick" text="EXIT" maxWidth="Infinity" />
     </HBox>
-    <TableView fx:id="ticketTable" prefHeight="300.0" prefWidth="200.0" >
-        <columns>
-            <TableColumn fx:id="columnTicketId" prefWidth="100.0" text="Ticket ID" />
-            <TableColumn fx:id="columnDate" prefWidth="100.0" text="Date" />
-            <TableColumn fx:id="columnRequest" minWidth="550" prefWidth="275.0" text="Request" />
-        </columns>
-    </TableView>
-    <Label fx:id="StatusMessage" />
-    <HBox prefHeight="50.0" prefWidth="200.0" alignment="CENTER" spacing="10">
-        <Button onAction="#onLogOutClick" text="LOGOUT" />
-        <Button onAction="#onExitClick" text="EXIT" />
-    </HBox>
-
-
-
 
 </VBox>

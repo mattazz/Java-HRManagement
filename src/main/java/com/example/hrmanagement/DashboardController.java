@@ -170,4 +170,9 @@ public class DashboardController {
     public void onExitClick(ActionEvent actionEvent) {
         LoginManager.exit();
     }
+
+    public void onViewPreferences(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        SceneManager.changeScene(stage, "/com/example/hrmanagement/dashboard-preferences-view.fxml", StatusMessage);
+    }
 }
